@@ -1,0 +1,26 @@
+version: '3.1'
+
+services:
+
+  mongodb:
+    image: mongo:4.0.5 
+    restart: always
+    ports:
+      - 27017:27017
+    volumes:
+        - ~/mongo:/data/db:rw
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: pass
+
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - 8081:8081
+    links:
+      - mongodb:mongodb
+    environment:
+      ME_CONFIG_MONGODB_URL: 'mongodb://root:pass@mongodb:27017/admin?ssl=false'
+      ME_CONFIG_MONGODB_AUTH_USERNAME: root
+      ME_CONFIG_MONGODB_AUTH_PASSWORD: pass
