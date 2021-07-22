@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Server } from "./server";
 import routes from "./api";
 

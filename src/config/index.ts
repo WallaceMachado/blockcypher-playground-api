@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 // @ts-ignore
 import pj from "../../package.json";
 import dotenv from "dotenv";
@@ -8,6 +9,6 @@ export default {
   appName: pj.name,
   version: pj.version,
   env: process.env.ENV || "dev",
-  port: Number(process.env.PORT) || 3000,
+  port: Number(process.env.PORT) || 3333,
 };
 

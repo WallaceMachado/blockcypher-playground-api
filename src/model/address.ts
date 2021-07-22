@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import mongoose, { Document } from "mongoose";
 export interface IAddress extends Document {
     "private": string,

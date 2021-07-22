@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import config from "../config";
 import { createLogger, transports, format } from "winston";
 

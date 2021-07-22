@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import config from "./config";
 
 import express, { Application } from "express";
