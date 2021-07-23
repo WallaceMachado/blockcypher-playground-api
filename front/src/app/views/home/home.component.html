@@ -1,8 +1,10 @@
 <mat-toolbar>
   <mat-toolbar-row class= 'toolbarRow'>
-    <span><mat-icon>account_balance_wallet</mat-icon> WALLETS </span>
+    <a mat-button routerLink="">
+      <span><mat-icon>account_balance_wallet</mat-icon> WALLETS </span>
+    </a>
     <span class="example-spacer"></span>
-    <button mat-raised-button>
+    <button mat-raised-button (click)='create()'>
       <mat-icon>add</mat-icon> WALLET
     </button>
   </mat-toolbar-row>

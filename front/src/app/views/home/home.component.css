@@ -3,6 +3,9 @@
 }
 
 .toolbarRow {
-  font-size: 1.5rem;
   height: 80px;
+}
+
+a {
+  font-size: 1.5rem;
 }
