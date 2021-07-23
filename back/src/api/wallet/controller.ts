@@ -34,6 +34,9 @@ export class WalletController {
 
     getWallet = async (req: Request, res: Response) => {
 
+        /* quando tento buscar as wallets existentes, a api retorna um array vazio,
+        por isso, estou retornando as wallets salvas no banco */
+
         // var walletResponse = await axios.get<WalletList>("https://api.blockcypher.com/v1/bcy/test/wallets?token=" + process.env.CYPHER_TOKEN);
         const wallets = await Wallet.find();
 
@@ -58,6 +61,9 @@ export class WalletController {
 
             await Address.create(addrResp.data);
 
+            /* Quando tento criar uma wallet, passando o address gerado na requisição acima 
+            a api retorna mensagem de erro (code error 409).
+             Só consigo criar uma wallet passando o address abaixo*/
             const addressTest = "1JcX75oraJEmzXXHpDjRctw3BX6qDmFM8e";
 
             var data = {
