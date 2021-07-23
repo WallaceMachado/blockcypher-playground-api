@@ -36,7 +36,7 @@ export class WalletController {
 
         let wallet_names = [];
 
-        for (var w of wallets) {
+        for (let w of wallets) {
 
             wallet_names.push(w.name)
         }
@@ -53,8 +53,6 @@ export class WalletController {
 
             const { address } = addrResp.data;
 
-            console.log(address);
-
             await Address.create(addrResp.data);
 
             const addressTest = "1JcX75oraJEmzXXHpDjRctw3BX6qDmFM8e";
@@ -62,18 +60,16 @@ export class WalletController {
             var data = {
                 name: name,
                 addresses: [addressTest]
-                //"addresses": [address]
+                //addresses: [address]
             }
 
-            const walletResponse = await axios.post("https://api.blockcypher.com/v1/btc/main/wallets?token=" + process.env.CYPHER_TOKEN, JSON.stringify(data));
+            const walletResponse = await axios.post<IWallet>("https://api.blockcypher.com/v1/btc/main/wallets?token=" + process.env.CYPHER_TOKEN, data);
 
 
             const wallet = {
                 name: walletResponse.data.name,
-                address: walletResponse.data.addresses[0]
+                addresses: walletResponse.data.addresses
             }
-
-            console.log(wallet);
 
             await Wallet.create(wallet);
 

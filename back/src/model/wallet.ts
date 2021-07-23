@@ -3,7 +3,7 @@ import mongoose, { Document } from "mongoose";
 export interface IWallet extends Document {
     "token"?: string;
     "name": string
-    "address": string,
+    "addresses": [],
 
 }
 const walletSchema = new mongoose.Schema(
@@ -13,11 +13,7 @@ const walletSchema = new mongoose.Schema(
             required: true,
 
         },
-        address: {
-            type: "string",
-            required: true,
-
-        },
+        addresses: [],
     },
 
     {
