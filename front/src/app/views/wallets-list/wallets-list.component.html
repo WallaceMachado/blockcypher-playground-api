@@ -1,0 +1,9 @@
+<mat-selection-list #wallets [multiple]="false">
+  <mat-list-option *ngFor="let wallet of walletList" [value]="wallet">
+    {{wallet}}
+  </mat-list-option>
+</mat-selection-list>
+
+<p>
+  Wallet selected: {{wallets.selectedOptions.selected[0]?.value}}
+</p>
