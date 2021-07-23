@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 /* eslint-disable prefer-const */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable prettier/prettier */
@@ -19,6 +20,8 @@ export class WalletController {
             var addrResponse = await axios.post<IAddress>("https://api.blockcypher.com/v1/bcy/test/addrs?token=" + process.env.CYPHER_TOKEN)
 
             await Address.create(addrResponse.data);
+
+            console.log('addr: ', addrResponse)
 
             res.status(200).json(addrResponse.data);
 
