@@ -21,7 +21,7 @@ export class WalletController {
 
             await Address.create(addrResponse.data);
 
-            console.log('addr: ', addrResponse)
+            
 
             res.status(200).json(addrResponse.data);
 
@@ -34,10 +34,12 @@ export class WalletController {
 
     getWallet = async (req: Request, res: Response) => {
 
-        /* quando tento buscar as wallets existentes, a api retorna um array vazio,
-        por isso, estou retornando as wallets salvas no banco */
+        
 
-        // var walletResponse = await axios.get<WalletList>("https://api.blockcypher.com/v1/bcy/test/wallets?token=" + process.env.CYPHER_TOKEN);
+         var walletsResponse = await axios.get('https://api.blockcypher.com/v1/btc/main/wallets?token=' + process.env.CYPHER_TOKEN);
+       
+         /*  retornando as wallets salvas no banco 
+
         const wallets = await Wallet.find();
 
         let wallet_names = [];
@@ -46,9 +48,10 @@ export class WalletController {
 
             wallet_names.push(w.name)
         }
+        */
 
-
-        res.status(200).json({ wallet_names: wallet_names });
+        
+        res.status(200).json( walletsResponse.data );
     };
 
     createWallet = async (req: Request, res: Response) => {
